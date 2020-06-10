@@ -34,7 +34,7 @@ def add_state(total_tests_frame, pos_ratios_frame, name, abbr):
     DataFrame `total_tests_frame`: copy of input with additional column added
     DataFrame `pos_ratios_frame`: copy of input with additional column added
     '''
-    data_url = f"https://covidtracking.com/api/v1/states/%s/daily.json" % abbr
+    data_url = f"https://covidtracking.com/api/v1/states/%s/daily.json" % abbr.lower()
     data = pd.read_json(data_url)
     data["date"] = pd.to_datetime(data["date"], format='%Y%m%d')
     data = data.set_index("date")
